@@ -1,7 +1,9 @@
 const root = document.documentElement;
 const themeBtn = document.getElementById('theme');
 const current = () => root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-const label = () => { themeBtn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode'; };
+const label = () => { const dark = current() === 'dark';
+  themeBtn.textContent = dark ? 'Light' : 'Dark';
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode'); };
 themeBtn.addEventListener('click', () => {
   const next = current() === 'dark' ? 'light' : 'dark';
   root.dataset.theme = next;

@@ -16,6 +16,7 @@ a{color:inherit}
 .links{display:flex;gap:36px;font-size:14px;color:var(--muted)}.links a{text-decoration:none;min-height:44px;display:flex;align-items:center}
 .nav-actions{display:flex;gap:8px;align-items:center}
 .menu{display:none}
+.links .only-m{display:none}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:14px;background:var(--brand);color:var(--on-brand);font:700 15px/1 inherit;font-family:inherit;text-decoration:none;border:0;cursor:pointer}
 .btn.sm{min-height:44px;padding:0 20px;border-radius:12px}
@@ -62,6 +63,7 @@ summary{cursor:pointer;font-weight:700;min-height:28px}details p{margin:10px 0 0
 .doc h1{font-size:clamp(32px,5vw,44px);margin-bottom:8px}.doc h2{margin:40px 0 8px;font-size:20px}.doc p,.doc li{color:var(--muted)}.doc ul{padding-left:20px}
 .draft{background:var(--tint);color:var(--text);border-radius:12px;padding:12px 16px;font-size:14px}
 @media (max-width:860px){
+  .links .only-m{display:flex}.nav-actions .btn.sm:not(.ghost){display:none}
   .links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px var(--pad) 16px}.links.open{display:flex}
   .menu{display:inline-flex}
   .hero{grid-template-columns:1fr}.phone{display:none}
