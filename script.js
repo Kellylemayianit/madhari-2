@@ -1,11 +1,21 @@
 const root = document.documentElement;
-const btn = document.getElementById('theme');
+const themeBtn = document.getElementById('theme');
 const current = () => root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-const label = () => { btn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode'; };
-btn.addEventListener('click', () => {
+const label = () => { themeBtn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode'; };
+themeBtn.addEventListener('click', () => {
   const next = current() === 'dark' ? 'light' : 'dark';
   root.dataset.theme = next;
   try { localStorage.setItem('theme', next); } catch (e) {}
   label();
 });
 label();
+
+const menuBtn = document.getElementById('menu');
+const links = document.getElementById('links');
+menuBtn.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+links.addEventListener('click', (e) => {
+  if (e.target.closest('a')) { links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+});
